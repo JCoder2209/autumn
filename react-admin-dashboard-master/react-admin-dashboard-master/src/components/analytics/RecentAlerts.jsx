@@ -9,7 +9,7 @@ const RecentAlerts = ({ recentAlerts }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.5 }}
     >
-      <h2 className="text-xl font-semibold text-gray-100 mb-4">Recent Alerts (Last 24 Hours)</h2>
+      <h2 className="text-xl font-semibold text-gray-100 mb-4">Recent Alerts (Last 2 Months)</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-gray-900 border border-gray-700 rounded-lg">
           <thead>
