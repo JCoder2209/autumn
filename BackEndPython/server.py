@@ -19,7 +19,7 @@ app.add_middleware(
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "Midukk@n1942#",
+    "password": "******",
     "database": "food_tracking"
 }
 
