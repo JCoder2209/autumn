@@ -9,7 +9,7 @@ app = FastAPI()
 # Enable CORS for frontend communication
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change this to your frontend domain for security
+    allow_origins=["*"],  # Opened all ports for timebeing but we will need to restrict for security
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
@@ -19,7 +19,7 @@ app.add_middleware(
 db_config = {
     "host": "localhost",
     "user": "root",
-    "password": "Midukk@n1942#",
+    "password": "*********",
     "database": "food_tracking"
 }
 
@@ -120,7 +120,7 @@ def get_top_alert_destinations():
         cursor.close()
         conn.close()
 
-# Get Recent Alerts (Last 24 Hours)
+# Get Recent Alerts (Last 2 Months)
 @app.get("/api/alerts/recent")
 def get_recent_alerts():
     conn = get_db_connection()
@@ -128,10 +128,10 @@ def get_recent_alerts():
         raise HTTPException(status_code=500, detail="Database connection failed")
     try:
         cursor = conn.cursor(dictionary=True)
-        last_24_hours = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')
+        last_2_months = (datetime.now() - timedelta(days=60)).strftime('%Y-%m-%d %H:%M:%S')
         query = "SELECT * FROM alerts WHERE created_at >= %s ORDER BY created_at DESC"
 
-        cursor.execute(query, (last_24_hours,))
+        cursor.execute(query, (last_2_months,))
         result = cursor.fetchall()
         return result
     finally:
