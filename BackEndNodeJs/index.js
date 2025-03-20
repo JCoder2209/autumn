@@ -16,7 +16,11 @@ app.use(cors());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
+<<<<<<< HEAD
     password: '********', //  MySQL password
+=======
+    password: '****',
+>>>>>>> 21ba6c822cebf608d60ceff6e87c1e0b1fbfed39
     database: 'food_tracking'
 });
 

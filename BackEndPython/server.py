@@ -9,7 +9,11 @@ app = FastAPI()
 # Enable CORS for frontend communication
 app.add_middleware(
     CORSMiddleware,
+<<<<<<< HEAD
     allow_origins=["*"],  # Opened all ports for timebeing but we will need to restrict for security
+=======
+    allow_origins=["*"],  
+>>>>>>> 21ba6c822cebf608d60ceff6e87c1e0b1fbfed39
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
@@ -19,7 +23,11 @@ app.add_middleware(
 db_config = {
     "host": "localhost",
     "user": "root",
+<<<<<<< HEAD
     "password": "*********",
+=======
+    "password": "******",
+>>>>>>> 21ba6c822cebf608d60ceff6e87c1e0b1fbfed39
     "database": "food_tracking"
 }
 
@@ -120,7 +128,11 @@ def get_top_alert_destinations():
         cursor.close()
         conn.close()
 
+<<<<<<< HEAD
 # Get Recent Alerts (Last 2 Months)
+=======
+# Get Recent Alerts (Last2 Months)
+>>>>>>> 21ba6c822cebf608d60ceff6e87c1e0b1fbfed39
 @app.get("/api/alerts/recent")
 def get_recent_alerts():
     conn = get_db_connection()
